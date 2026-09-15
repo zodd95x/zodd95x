@@ -22,6 +22,9 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: zodd95x
+          # SNK_TOKEN = PAT avec scope `repo` pour inclure tes contributions privées
+          # Si le secret n'existe pas, ça retombe sur github.token (public uniquement)
+          github_token: ${{ secrets.SNK_TOKEN || github.token }}
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark&color_snake=#bf5af2
